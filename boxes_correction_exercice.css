@@ -1,12 +1,31 @@
 body{
-    font: 16px Tahoma,Arial,sans-serif;
+    font: 1.125em Tahoma,Arial,sans-serif;
+} 
+/* "em" est utlisé pour s'adapter à chaque navigateur à la place de "px, c'est une unité relative */
+.container {
+    width: 960px;
+    margin: 0 auto;
 }
 
+/* .clearfix {
+    clear: both;/* permet de supprimer les flottaisons à gauche et à droite sans indiquer left et right  
+} Méthode ancienne*/
+
+.clearfix::after {
+    clear: both;
+    content: 'Hello World';
+}
 .box{
-    border: 2px solid #CCCCCC;
+    border: 0.125em solid #CCCCCC;
     margin-bottom: 20px;
     transition: box-shadow .4s ease;
+    /* Voir Cubic-bezier.com pour paramètrer différentes animations */
     /* La transition se place dans la boîte initiale par défaut, d'origine et non dans l'état modifié. */
+    position: relative;
+    /* Pour positionner le parent par rapport à l'image enfant */
+    /* font-size: 2em; */
+    /* Ici relatif par rapport au parent ici body; utiliser plutôt rem pour éviter de cumuler les tailles */
+    font-size: 1rem;
 }
 
 .box:hover{
@@ -32,6 +51,32 @@ body{
     color: white;
 }
 
+.box-author {
+    /* border: 2px solid red; */
+    position: absolute;
+    /* Pour positionner l'image insérée ici USer */
+    top: -36px;
+    right:25px;
+    /* Pour fixer l'image par rapport à la page */
+}
+
+.box-author img {
+    width: 70px;
+}
+
+.box-author-name {
+    position: absolute;
+    top: 14px;
+    right: 20px;
+    background: #222;
+    /* background: rgba (255, 0, 0, 0.5) */
+    color: #fff;
+    padding: 2px;
+    /* Pour ajouter nom "User" sous l'image "User" */
+    z-index: 1;
+    /* Pour augmenter l'importance de l'élément, le nom se remplace ainsi devant l'image alors que la div image est placée aprés le nom dans le HTML */
+}
+
 .box-title{
 margin: 0;
 border-bottom: inherit;
@@ -43,6 +88,35 @@ padding: 8px;
 font-size: 20px;
 }
 
+.box-img {
+    float: left;
+    /* On peut faire flotter l'image à côté du texte */
+    width: 300px;
+}
+
 .box-content{
-padding: 10px;
+padding: 16px;
+line-height: 22px; 
+/* Jouer sur l'espace entre les lignes  */
+
+/* Pour intégrer une image en arrière-plan du block */
+/* background-image: url(https://www.geo.fr/var/geo/storage/images/media/images/fond-d-ecran-gratuit-mer-falaises-d-etretat-en-normandie/1704066-1-fre-FR/fond-d-ecran-gratuit-mer-falaises-d-etretat-en-normandie.jpg);
+background-repeat: no-repeat;
+background-size: cover; */
+}
+
+.top-page {
+    position: fixed;
+    bottom: 10px;
+    right:10px;
+}
+
+.top-page img {
+    width: 50px;
+    opacity: .3;
+}
+
+.top-page img:hover {
+    opacity: 1;
+    transition: opacity .4s ease;
 }
