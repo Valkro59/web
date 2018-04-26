@@ -1,0 +1,44 @@
+
+.flex-container{
+    width: 880px;
+    height: 600px;
+    margin: 0 auto;
+    border: 2px solid #666;
+    display: flex;
+    /* justify-content: space-between; */
+    /* align-items: flex-start; */
+    flex-direction: row;/*  Pour colonne / row pour ligne */
+}
+
+.flex-square {
+    width:80px;
+    height: 80px;
+    background-color: lightblue;
+    border: 2px solid #666;
+    color: white;
+}
+
+.flex-square-blue {
+    background-color: blue;
+}
+
+.flex-square-red {
+    background-color: red;
+    /* flex-basis: 100%; */
+    flex-grow: 1; /* Prend l'espace restant */
+    align-self: stretch;
+}
+
+.flex-square-green {
+    background-color: green;
+}
+
+.flex-square-yellow {
+    background-color: yellow;
+    color: black;
+    flex-grow: 2; /* Se partage l'espace restant avec red, ici il en prend deux fois plus */
+}
+
+.flex-square-purple {
+    background-color: purple;
+}

@@ -13,8 +13,14 @@ body{
 
 .clearfix::after {
     clear: both;
-    content: 'Hello World';
-}
+    content: '';/* Toujours mettre afin d'avoir l'élément même s'il n'y rien dedans*/
+    overflow: auto;  /* Forcer l'arrêt du float -> "overflow" pour ce qu'il y a au dessus du flow*/
+    zoom: 1;
+    display: table;
+    height: 0;
+} /*Ici le clearflix est censé fonctionner pour tout les navigateurs, pas forcèment de logique derrière, dpd des navigateurs*/
+/* Par exemple: "display" fonctionne avec google et "zoom" avec internet explorer */
+
 .box{
     border: 0.125em solid #CCCCCC;
     margin-bottom: 20px;
