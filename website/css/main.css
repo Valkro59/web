@@ -40,9 +40,98 @@ MENU
      background: linear-gradient(royalblue, lightskyblue);
      height: 300px;
      background-repeat: no-repeat;
+     position: relative; 
+     color: #fff; 
+     line-height: 300px;  
+     overflow: hidden;/* Permet de ne pas agrandir le contenu en dépassant le flow */
  }
 
  .sky-title {
+    margin: 0;
+    z-index: 4;/*  Mettre titre au dessus des images */
+    position: relative;
+    text-shadow: 2px 2px 5px royalblue;/*  Mettre une ombre projetée */
+    margin-left: 50px; 
+    font-size: 2em;
+ }
+
+ .sky-cloud1 {
+    position: absolute;
+    top: 30px;
+    width: 200px;
+    left: 10px;
+    animation-name: cloudMoveX; /*  Animation définie dans le @keyframes */
+    animation-duration: 30s;
+    animation-timing-function: linear; /* Permet de déplacer sans accélération ni ralentissement */
+    animation-fill-mode: both; /* Permet de faire des allers-retours sinon utiliser forwards ou backwards */
+    animation-iteration-count: infinite; 
+}
+
+ .sky-cloud2 {
+    position: absolute;
+    top: 100px;
+    left: 20px;
+    animation-name: cloudMoveX; /*  Animation définie dans le @keyframes */
+    /* animation-duration: 40s;
+    animation-timing-function: linear; 
+    animation-fill-mode: both;/*  Permet de faire revenir la ligne de lecture au début */
+    /* animation-iteration-count: infinite;  Permet à l'animation de ne jamais s'arrêter */
+    animation: cloudMoveX 40s linear 0s infinite normal both;/*  Equivalent lignes du début mais ici en une seule ligne */
+ }
+
+/* Animation des nuages */
+
+ @keyframes cloudMoveX {
+     from {
+        transform: translateX(-500px);
+     }
+     to {
+        transform: translateX(400px);
+     }
+ }
+
+ /***
+ container 
+  */
+.container {
+     background-color: #f0f0f0;
+     padding: 10px;
+ }
+
+.content article {
+     margin-bottom: 10px;
+     padding: 10px;
+     border: 1px solid #CCC;
+     background: #fff;
+ }
+
+ .content article:last-child {
      margin: 0;
-     color: #fff;
+ } /* Permet de définir des paramètres sur le dernier enfant ici le dernier article compris dan content*/
+
+ aside.sidebar /* Attacher la classe avec . entre les deux à l'élément permet ici à sidebar de ne fonctionner avec aside*/ { 
+     background: #fff;
+     margin-top: 10px;
+     border: 1px solid #CCC;
+     padding: 10px;
+ }
+
+ .menu a{
+     display: block;
+ }
+
+ /****
+ FOOTER 
+  */
+
+ .footer {
+     background-color: rgb(199, 101, 22);
+     color: #f0f0f0;
+     padding: 10px;
+ } 
+
+ @media screen and (min-width 768px) {
+     .footer {
+         background-color: red;
+     }
  }
